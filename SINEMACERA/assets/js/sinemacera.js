@@ -1,28 +1,27 @@
-	// $(".btn-primary").click(function() {
+	//INITIAL FADES
 
-	// var thisBTN = $(this);
-	// var RM = $(this).prev();
-
-	// RM.slideToggle(1000, function() {
-	// 	thisBTN.toggleClass("btn-info")
-	// 	if(thisBTN.text()==="Küçült") {
-	// 		thisBTN.text("Devamını oku");
-	// 	}
-	// 	else {
-	// 		thisBTN.text("Küçült")
-	// 	}
-	// });
-	// });
-
-	$("#COVER").fadeTo(3000,1);
+		$("#COVER").fadeTo(3000,1);
 	$("#COVERTEXT").delay(3500).fadeTo(1500,0.5);
 
 
 
+//VIDEO MUTE NOT MUTE  by transition
+
+vid=$("video");
+
+vid.mouseenter(function(){
+       this.muted = false;
+       vid.animate({volume: 1}, 1500);
+       
+    });
+
+vid.mouseleave(function(){
+      vid.animate({volume: 0}, 1500);
+
+    });
 
 
-
-
+//TEXT TRUNCATOR	
 
 function shorten(text, maxLength, delimiter, overflow) {
   delimiter = delimiter || "…";
@@ -36,30 +35,12 @@ function shorten(text, maxLength, delimiter, overflow) {
 }
 
 $(document).ready(function() {
-  var editedText = $(".text");
-  
+ 	var editedText = $(".text");
   for(var i=0; i<editedText.length; i++) {
-  editedText[i].textContent = shorten(editedText[i].textContent, 200, "...", false);
+  editedText[i].textContent = shorten(editedText[i].textContent, 400, "...", false);
 }
-
+ 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
